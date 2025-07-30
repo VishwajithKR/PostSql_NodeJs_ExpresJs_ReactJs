@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "642cc3f4-eb33-4b23-a0dd-e85b7aa98504",
+		"name": "Postsql Crud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24736891"
+	},
+	"item": [
+		{
+			"name": "Post method",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"10\",\n    \"name\":\"malish\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PSQL}}/post",
+					"host": [
+						"{{PSQL}}"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put method",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"21\",\n    \"name\":\"malish\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PSQL}}/update",
+					"host": [
+						"{{PSQL}}"
+					],
+					"path": [
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find method",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"10\",\n    \"name\":\"malish\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PSQL}}/find",
+					"host": [
+						"{{PSQL}}"
+					],
+					"path": [
+						"find"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete method",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"10\",\n}"
+				},
+				"url": {
+					"raw": "{{PSQL}}/delete",
+					"host": [
+						"{{PSQL}}"
+					],
+					"path": [
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get method",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{PSQL}}/getall",
+					"host": [
+						"{{PSQL}}"
+					],
+					"path": [
+						"getall"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
