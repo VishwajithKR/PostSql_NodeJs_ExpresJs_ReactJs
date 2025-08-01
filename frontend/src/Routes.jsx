@@ -6,6 +6,7 @@ import Todo from "./pages/Todo";
 import NoDataFound from "./NoDataFound";
 import { useReusableQuery } from "./customHooks/useDataQuery";
 import HomeScreenLoyout from "./layouts/HomeScreenLoyout";
+import Edit from "./pages/Edit";
 
 const Router = () => {
   const { data } = useReusableQuery({
@@ -21,6 +22,7 @@ const Router = () => {
           <Route element={ isAuthenticated ? <HomeScreenLoyout /> : <Navigate to="/login" replace />}>
             <Route path="/" index element={<Home data={data?.user} />} />
             <Route path="/todo" element={<Todo data={data?.user} />} />
+            <Route path="/edit" element={<Edit data={data?.user} />} />
           </Route>
 
         <Route path="/login" element={!isAuthenticated ? <Login /> : <Navigate to="/" replace />} />
