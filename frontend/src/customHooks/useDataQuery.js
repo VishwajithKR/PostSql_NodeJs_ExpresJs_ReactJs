@@ -10,7 +10,6 @@ export const useReusableQuery = ({
   options = {},    
 }) => {
   const token = withToken ? useSelector((state) => state.user.token) : null;
-
   const queryKey = [endpoint, { ...(params && { params }), ...(token && { token }) }];
 
   return useQuery({

@@ -44,8 +44,7 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData,"formData")
-    register({ endPoint: "register", payload:formData});
+    register({ endPoint: "auth/register", payload:formData});
   };
 
   return (

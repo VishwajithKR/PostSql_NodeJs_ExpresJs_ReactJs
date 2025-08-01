@@ -14,7 +14,12 @@ export const createTable = async () => {
     },
     {
       name: "demotable",
-      fields: "id INT PRIMARY KEY, name VARCHAR(20)"
+       fields: `
+      id SERIAL PRIMARY KEY,
+      userID INT CHECK (userID >= 0) CHECK (char_length(userID::text) <= 1000),
+      title VARCHAR(50),
+      description VARCHAR(500),
+      checkData INT`
     },
   ];
 

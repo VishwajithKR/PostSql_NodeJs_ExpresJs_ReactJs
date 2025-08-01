@@ -1,38 +1,35 @@
 import db from "../lib/db.js";
 
 export const postMethod = async (req, res) => {
-  const { name, id } = req.body;
-  if (!name || id === undefined || id === null) {
-    return res.status(400).json({ error: "Both 'id' and 'name' are required." });
+  const { userID, title, description, checkData } = req.body;
+  if (!userID ) {
+    return res.status(400).json({ error: "All fields (userID, title, description, checkData) are required." });
   }
+
   try {
-    const checkQuery = "SELECT * FROM demotable WHERE id = $1";
-    const existing = await db.query(checkQuery, [id]);
-    if (existing.rows.length > 0) {
-      return res.status(409).json({ error: `A record with id ${id} already exists.` });
-    }
-    const insertQuery = "INSERT INTO demotable (id, name) VALUES ($1, $2)";
-    await db.query(insertQuery, [id, name]);
+    const insertQuery = `
+      INSERT INTO demotable (userID, title, description, checkData)
+      VALUES ($1, $2, $3, $4)
+    `;
+    await db.query(insertQuery, [userID, title, description, checkData]);
+
     return res.status(201).json({ message: "Data inserted successfully" });
   } catch (err) {
-    console.error("Error inserting data:", err);
+    console.error("Error inserting data into demotable:", err);
     return res.status(500).json({ error: "Database error", details: err.message });
   }
 };
 
 
+
 export const findMethod = async (req, res) => {
   const { id } = req.body;
-
-  const select_query = "SELECT * FROM demotable WHERE id = $1";
-
+  const select_query = "SELECT * FROM demotable WHERE userid = $1";
   try {
     const result = await db.query(select_query, [id]);
-
     if (result.rows.length === 0) {
-      return res.status(404).json({ message: "No data found" });
+      return res.status(201).json({ message: "No data found" });
     }
-
     return res.status(200).json({ data: result.rows });
   } catch (err) {
     console.error("Error fetching data:", err);

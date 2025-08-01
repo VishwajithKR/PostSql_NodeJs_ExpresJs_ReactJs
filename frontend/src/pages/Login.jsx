@@ -40,7 +40,7 @@ const Login = () => {
  const handleSubmit = (e) => {
   e.preventDefault();
   login({
-    endPoint: "login",
+    endPoint: "auth/login",
     payload: { email, password },
   });
 };
