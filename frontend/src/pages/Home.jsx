@@ -5,15 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const Home = ({ data }) => {
   const { token } = useSelector((state) => state.user);
-  const navigate = useNavigate();
-  const { mutate: todoData } = useReusableMutation({
-    onSuccess: (data) => {
-     
-    },
-    onError: (err) => {
-      console.error("Login error:", err);
-    },
-  });
+  const { mutate: todoData } = useReusableMutation({});
   useEffect(() => {
     todoData({
       endPoint: "api/find",
